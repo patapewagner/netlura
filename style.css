@@ -1,0 +1,542 @@
+body {
+    background: #141414;
+    /* Define a cor de fundo da página */
+    color: #fff;
+    /* Define a cor do texto principal */
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    /* Define a fonte usada no site */
+    margin: 0;
+    /* Remove a margem padrão do body */
+    min-height: 100vh;
+    /* Garante que o body ocupe pelo menos toda a altura da tela */
+    padding: 1rem;
+    /* Padding para não colidir com bordas */
+    box-sizing: border-box;
+    /* Inclui padding no cálculo de largura */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Transição suave entre temas */
+}
+
+main {
+    display: flex;
+    /* Usa flexbox para layout */
+    flex-direction: column;
+    /* Organiza os elementos em coluna */
+    align-items: center;
+    /* Centraliza os itens horizontalmente */
+    justify-content: center;
+    /* Centraliza os itens verticalmente */
+    min-height: 100vh;
+    /* Garante altura mínima de 100% da tela */
+}
+
+h1 {
+    font-size: clamp(1.5rem, 8vw, 2.5rem);
+    /* Tamanho responsivo com clamp */
+    font-weight: bold;
+    /* Deixa o texto em negrito */
+    margin-bottom: 2rem;
+    /* Espaço abaixo do título */
+    letter-spacing: 1px;
+    /* Espaçamento entre letras */
+    margin-top: 0;
+    /* Remove margem superior */
+    text-align: center;
+    /* Centraliza o texto */
+    transition: color 0.3s ease;
+    /* Transição suave de cor */
+}
+
+section[aria-label="Perfis disponíveis"] {
+    width: 100%;
+    /* Ocupa toda a largura disponível */
+    max-width: 600px;
+    /* Limita a largura máxima */
+    display: flex;
+    /* Usa flexbox */
+    justify-content: center;
+    /* Centraliza os perfis */
+    padding: 0 1rem;
+    /* Padding lateral responsivo */
+}
+
+.profiles {
+    display: flex;
+    /* Usa flexbox para os perfis */
+    gap: clamp(1rem, 5vw, 2rem);
+    /* Espaço responsivo entre os perfis */
+    flex-wrap: wrap;
+    /* Quebra linhas em telas pequenas */
+    justify-content: center;
+    /* Centraliza os perfis */
+    width: 100%;
+    /* Ocupa a largura disponível */
+    list-style: none;
+    /* Remove números da lista ordenada */
+    padding: 0;
+    /* Remove padding padrão */
+    margin: 0;
+    /* Remove margem padrão */
+}
+
+.profiles li {
+    list-style: none;
+    /* Remove item markers */
+    counter-reset: none;
+    /* Reseta contadores de lista */
+    padding: 0;
+    /* Remove padding padrão */
+    margin: 0;
+    /* Remove margem padrão */
+}
+
+.profile {
+    text-decoration: none;
+    /* Remove sublinhado dos links */
+    color: #fff;
+    /* Cor do texto dos links */
+    transition: transform 0.2s, box-shadow 0.2s, filter 0.2s, color 0.3s ease;
+    /* Suaviza animações */
+    cursor: pointer;
+    /* Mostra que é clicável */
+}
+
+.profile:hover {
+    transform: scale(1.1);
+    /* Aumenta o tamanho ao passar o mouse */
+}
+
+.profile:active {
+    transform: scale(0.95);
+    /* Efeito de clique */
+}
+
+figure {
+    margin: 0;
+    /* Remove margem padrão */
+    display: flex;
+    /* Usa flexbox */
+    flex-direction: column;
+    /* Organiza em coluna */
+    align-items: center;
+    /* Centraliza itens */
+    overflow: hidden;
+    /* Esconde excesso de zoom da imagem */
+    border-radius: 12px;
+    /* Mantém cantos arredondados */
+    border: 2px solid #333;
+    /* Borda inicial ao redor da imagem */
+    transition: border-color 0.2s ease;
+}
+
+figure:hover {
+    border-color: #fff;
+    /* Borda branca ao passar o mouse */
+}
+
+img {
+    width: clamp(80px, 25vw, 150px);
+    /* Tamanho responsivo das imagens */
+    height: clamp(80px, 25vw, 150px);
+    /* Altura responsiva */
+    border-radius: 10px;
+    /* Bordas arredondadas */
+    object-fit: cover;
+    /* Mantém proporção da imagem */
+    margin-bottom: 0.5rem;
+    /* Espaço abaixo da imagem */
+    background: #222;
+    /* Cor de fundo da imagem */
+    display: block;
+    /* Exibe como bloco */
+    border: none;
+    /* Removendo borda da própria imagem */
+    transition: transform 0.3s, background-color 0.3s ease;
+    /* Animação suave */
+    transform: scale(1.1);
+    /* Zoom inicial de 10% para esconder as bordas internas */
+}
+
+img:hover {
+    transform: scale(1.15);
+    /* Zoom extra no hover */
+}
+
+figcaption {
+    font-size: clamp(0.85rem, 3vw, 1.1rem);
+    /* Tamanho responsivo da legenda */
+    font-weight: 500;
+    /* Peso da fonte */
+    margin-top: 0.5rem;
+    /* Espaço acima da legenda */
+    letter-spacing: 0.5px;
+    /* Espaçamento entre letras */
+    text-align: center;
+    /* Centraliza o texto */
+    transition: color 0.3s ease;
+    /* Transição suave de cor */
+}
+
+/* ========================================
+   MEDIA QUERIES - RESPONSIVIDADE
+   ======================================== */
+
+/* Mobile (320px - 480px) */
+@media (max-width: 480px) {
+    body {
+        padding: 0.75rem;
+    }
+
+    main {
+        min-height: auto;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    h1 {
+        margin-bottom: 1.5rem;
+        margin-top: 1rem;
+    }
+
+    .profiles {
+        gap: 1rem;
+    }
+
+    section[aria-label="Perfis disponíveis"] {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    img {
+        width: 70px !important;
+        height: 70px !important;
+    }
+
+    figcaption {
+        font-size: 0.8rem;
+    }
+
+    .profile:hover {
+        transform: scale(1.05);
+    }
+}
+
+/* Tablet Pequeno (481px - 640px) */
+@media (min-width: 481px) and (max-width: 640px) {
+    h1 {
+        margin-bottom: 1.75rem;
+    }
+
+    .profiles {
+        gap: 1.25rem;
+    }
+
+    img {
+        width: 90px !important;
+        height: 90px !important;
+    }
+}
+
+/* Tablet (641px - 768px) */
+@media (min-width: 641px) and (max-width: 768px) {
+    h1 {
+        margin-bottom: 2rem;
+    }
+
+    .profiles {
+        gap: 1.5rem;
+    }
+
+    img {
+        width: 110px !important;
+        height: 110px !important;
+    }
+
+    figcaption {
+        font-size: 0.95rem;
+    }
+
+    .profile:hover {
+        transform: scale(1.08);
+    }
+}
+
+/* iPad/Tablet Grande (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    h1 {
+        margin-bottom: 2rem;
+    }
+
+    .profiles {
+        gap: 2rem;
+    }
+
+    img {
+        width: 130px !important;
+        height: 130px !important;
+    }
+
+    section[aria-label="Perfis disponíveis"] {
+        max-width: 700px;
+    }
+}
+
+/* Desktop (1025px em diante) */
+@media (min-width: 1025px) {
+    body {
+        padding: 1.5rem;
+    }
+
+    h1 {
+        margin-bottom: 2.5rem;
+        font-size: 2.5rem;
+    }
+
+    .profiles {
+        gap: 2rem;
+    }
+
+    img {
+        width: 150px !important;
+        height: 150px !important;
+    }
+
+    section[aria-label="Perfis disponíveis"] {
+        max-width: 800px;
+    }
+
+    .profile:hover {
+        transform: scale(1.12);
+        filter: brightness(1.1);
+    }
+}
+
+/* HD/Full HD (1440px em diante) */
+@media (min-width: 1440px) {
+    h1 {
+        font-size: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    .profiles {
+        gap: 3rem;
+    }
+
+    img {
+        width: 180px !important;
+        height: 180px !important;
+    }
+
+    section[aria-label="Perfis disponíveis"] {
+        max-width: 1000px;
+    }
+
+    figcaption {
+        font-size: 1.2rem;
+    }
+
+    body {
+        padding: 2rem;
+    }
+}
+
+/* Suporte para Landscape em dispositivos móveis */
+@media (max-height: 600px) and (orientation: landscape) {
+    main {
+        min-height: auto;
+        padding: 1rem 0;
+    }
+
+    h1 {
+        margin-bottom: 1rem;
+    }
+
+    img {
+        width: 70px !important;
+        height: 70px !important;
+    }
+
+    figcaption {
+        font-size: 0.75rem;
+    }
+}
+
+/* Proteção para telas muito pequenas (< 320px) */
+@media (max-width: 319px) {
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    img {
+        width: 60px !important;
+        height: 60px !important;
+    }
+
+    figcaption {
+        font-size: 0.7rem;
+    }
+
+    .profiles {
+        gap: 0.75rem;
+    }
+}
+
+/* ========================================
+   TEMA - LIGHT MODE
+   ======================================== */
+
+html[data-theme="light"] {
+    background-color: #f5f5f5;
+    color: #1a1a1a;
+}
+
+html[data-theme="light"] body {
+    background: #f5f5f5;
+    /* Fundo claro */
+    color: #1a1a1a;
+    /* Texto escuro */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html[data-theme="light"] h1 {
+    color: #1a1a1a;
+}
+
+html[data-theme="light"] .profile {
+    color: #1a1a1a;
+}
+
+html[data-theme="light"] img {
+    background: #e0e0e0;
+    /* Fundo mais claro para imagens */
+    border-color: #ccc;
+    /* Borda mais clara */
+}
+
+html[data-theme="light"] img:hover {
+    border-color: #1a1a1a;
+    /* Borda escura ao passar o mouse */
+}
+
+html[data-theme="light"] figcaption {
+    color: #1a1a1a;
+}
+
+/* ========================================
+   BOTÃO TOGGLE DE TEMA
+   ======================================== */
+
+.theme-toggle-container {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 1000;
+    /* Garante que fica acima de tudo */
+}
+
+.theme-toggle {
+    background: none;
+    border: 2px solid #666;
+    /* Borda cinza neutra */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    padding: 0;
+    outline: none;
+    color: #fff;
+}
+
+html[data-theme="dark"] .theme-toggle {
+    border-color: #666;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+html[data-theme="dark"] .theme-toggle:hover {
+    border-color: #fff;
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: scale(1.1);
+}
+
+html[data-theme="dark"] .theme-toggle:active {
+    transform: scale(0.95);
+}
+
+html[data-theme="light"] .theme-toggle {
+    border-color: #333;
+    background-color: rgba(0, 0, 0, 0.08);
+    color: #1a1a1a;
+}
+
+html[data-theme="light"] .theme-toggle:hover {
+    border-color: #1a1a1a;
+    background-color: rgba(0, 0, 0, 0.12);
+    transform: scale(1.1);
+}
+
+html[data-theme="light"] .theme-toggle:active {
+    transform: scale(0.95);
+}
+
+/* Animação de rotação suave */
+@keyframes themeToggleSpin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.theme-toggle span {
+    display: inline-block;
+    transition: transform 0.3s ease, color 0.3s ease;
+    color: #fff;
+    font-size: 1.4rem;
+    line-height: 1;
+    font-family: 'Segoe UI Symbol', 'Arial Unicode MS', sans-serif;
+    text-shadow: none;
+}
+
+html[data-theme="light"] .theme-toggle span {
+    color: #000;
+}
+
+.theme-toggle:active span {
+    animation: themeToggleSpin 0.6s ease-in-out;
+}
+
+/* Responsividade do botão */
+@media (max-width: 480px) {
+    .theme-toggle-container {
+        top: 1rem;
+        right: 1rem;
+    }
+
+    .theme-toggle {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+        border-width: 1.5px;
+    }
+}
+
+@media (max-height: 600px) and (orientation: landscape) {
+    .theme-toggle-container {
+        top: 0.75rem;
+        right: 0.75rem;
+    }
+
+    .theme-toggle {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+        border-width: 1.5px;
+    }
+}
