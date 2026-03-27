@@ -36,11 +36,12 @@ a:hover {
 
 /* Navbar */
 .navbar {
+    flex-wrap: nowrap;
     position: fixed;
     top: 0;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     padding: 0 4%;
     height: 70px;
@@ -55,6 +56,10 @@ a:hover {
     gap: 20px;
 }
 
+.navbar-right {
+    margin-left: auto;
+}
+
 .logo {
     width: 92px;
     margin-right: 25px;
@@ -62,6 +67,7 @@ a:hover {
 }
 
 .nav-links {
+    margin-left: 20px;
     list-style: none;
     display: flex;
     gap: 20px;
@@ -555,8 +561,22 @@ a:hover {
     border-bottom-left-radius: 4px;
 }
 
+.desktop-nav {
+    display: flex;
+    gap: 20px;
+
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 /* Mobile adjustments */
 @media (max-width: 768px) {
+
+    .desktop-nav {
+    display: none;
+    }
+    
     .navbar {
         padding: 0 2%;
         height: 60px;
